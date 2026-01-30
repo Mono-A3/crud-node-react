@@ -1,0 +1,807 @@
+/* App.css - Tema Futurista Ultra-Moderno 🚀 */
+
+/* Variables CSS para consistencia */
+:root {
+  --primary-glow: #00f0ff;
+  --secondary-glow: #ff00ea;
+  --accent-glow: #7000ff;
+  --success-glow: #00ff88;
+  --danger-glow: #ff0055;
+  --bg-dark: #05050a;
+  --bg-card: rgba(15, 15, 25, 0.7);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow-glow: 0 0 40px rgba(0, 240, 255, 0.3);
+}
+
+/* Reset y configuración base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-dark);
+  min-height: 100vh;
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Fondo animado con gradientes y partículas */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(0, 240, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 0, 234, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(112, 0, 255, 0.1) 0%, transparent 50%);
+  animation: backgroundPulse 8s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(0, 240, 255, 0.15) 1px, transparent 0),
+    radial-gradient(circle at 1px 1px, rgba(255, 0, 234, 0.1) 1px, transparent 0);
+  background-size: 50px 50px, 80px 80px;
+  background-position: 0 0, 40px 40px;
+  animation: gridMove 20s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+@keyframes backgroundPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0, 40px 40px;
+  }
+
+  100% {
+    background-position: 50px 50px, 90px 90px;
+  }
+}
+
+/* Contenedor principal */
+.App {
+  max-width: min(95vw, 1400px);
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  position: relative;
+  z-index: 1;
+}
+
+/* Header futurista con efecto holográfico */
+.App-header {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: linear-gradient(135deg,
+      rgba(0, 240, 255, 0.05) 0%,
+      rgba(15, 15, 25, 0.8) 50%,
+      rgba(255, 0, 234, 0.05) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: clamp(16px, 3vw, 24px);
+  position: relative;
+  overflow: hidden;
+  animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 60px rgba(0, 240, 255, 0.1);
+}
+
+/* Borde holográfico animado */
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--primary-glow),
+      var(--secondary-glow),
+      transparent);
+  animation: borderSlide 3s linear infinite;
+}
+
+.App-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg,
+      rgba(0, 240, 255, 0.3),
+      transparent,
+      rgba(255, 0, 234, 0.3));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  animation: rotateBorder 4s linear infinite;
+}
+
+@keyframes borderSlide {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.App-header h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 800;
+  background: linear-gradient(135deg,
+      var(--primary-glow) 0%,
+      var(--secondary-glow) 50%,
+      var(--accent-glow) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  position: relative;
+  animation: titleGlow 3s ease-in-out infinite;
+  text-shadow:
+    0 0 20px rgba(0, 240, 255, 0.5),
+    0 0 40px rgba(255, 0, 234, 0.3);
+}
+
+@keyframes titleGlow {
+
+  0%,
+  100% {
+    filter: brightness(1) drop-shadow(0 0 10px rgba(0, 240, 255, 0.6));
+  }
+
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 20px rgba(255, 0, 234, 0.8));
+  }
+}
+
+.App-header p {
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeInUp 0.6s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Formulario futurista con neomorfismo */
+.datos {
+  background: linear-gradient(135deg,
+      rgba(15, 15, 25, 0.9) 0%,
+      rgba(20, 20, 35, 0.85) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: clamp(16px, 3vw, 24px);
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--glass-border);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: slideUp 0.6s 0.3s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.datos::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(135deg,
+      rgba(0, 240, 255, 0.03) 0%,
+      transparent 50%,
+      rgba(255, 0, 234, 0.03) 100%);
+  border-radius: inherit;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.datos:hover {
+  transform: translateY(-5px) scale(1.01);
+  border-color: rgba(0, 240, 255, 0.3);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 80px rgba(0, 240, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.datos:hover::before {
+  opacity: 1;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Grid adaptativo para inputs */
+.datos form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: clamp(0.8rem, 2vw, 1.2rem);
+}
+
+.datos label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding-left: 12px;
+}
+
+.datos label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: linear-gradient(180deg, var(--primary-glow), var(--secondary-glow));
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* Inputs con efecto holográfico */
+.datos input {
+  width: 100%;
+  padding: clamp(0.7rem, 2vw, 0.9rem) clamp(0.9rem, 2.5vw, 1.2rem);
+  background: rgba(10, 10, 20, 0.6);
+  border: 1px solid rgba(100, 100, 150, 0.2);
+  border-radius: clamp(10px, 2vw, 14px);
+  color: var(--text-primary);
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.3),
+    0 0 0 0 rgba(0, 240, 255, 0);
+}
+
+.datos input:hover {
+  border-color: rgba(0, 240, 255, 0.4);
+  background: rgba(15, 15, 25, 0.8);
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+.datos input:focus {
+  outline: none;
+  border-color: var(--primary-glow);
+  background: rgba(15, 15, 25, 0.9);
+  box-shadow:
+    inset 0 2px 8px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(0, 240, 255, 0.2),
+    0 0 0 3px rgba(0, 240, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Botón principal holográfico */
+.datos button {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg,
+      rgba(0, 240, 255, 0.8) 0%,
+      rgba(112, 0, 255, 0.8) 50%,
+      rgba(255, 0, 234, 0.8) 100%);
+  color: white;
+  border: none;
+  padding: clamp(0.9rem, 2.5vw, 1.1rem);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  border-radius: clamp(12px, 2.5vw, 16px);
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: clamp(0.5rem, 1.5vw, 1rem);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow:
+    0 8px 25px rgba(0, 240, 255, 0.3),
+    0 0 40px rgba(112, 0, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.datos button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.datos button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.datos button:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 15px 40px rgba(0, 240, 255, 0.4),
+    0 0 60px rgba(255, 0, 234, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.datos button:active {
+  transform: translateY(-2px) scale(1);
+  box-shadow:
+    0 8px 20px rgba(0, 240, 255, 0.3),
+    0 0 40px rgba(112, 0, 255, 0.2);
+}
+
+/* Tabla futurista con glassmorphism */
+.tabla-container {
+  background: linear-gradient(135deg,
+      rgba(15, 15, 25, 0.9) 0%,
+      rgba(20, 20, 35, 0.85) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-radius: clamp(16px, 3vw, 24px);
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+  animation: slideUp 0.6s 0.4s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.tabla-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--primary-glow),
+      var(--secondary-glow),
+      transparent);
+  animation: scanLine 4s linear infinite;
+}
+
+@keyframes scanLine {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.tabla-registros {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+.tabla-registros thead {
+  background: linear-gradient(90deg,
+      rgba(0, 240, 255, 0.1) 0%,
+      rgba(112, 0, 255, 0.1) 50%,
+      rgba(255, 0, 234, 0.1) 100%);
+  position: relative;
+}
+
+.tabla-registros thead::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--primary-glow),
+      transparent);
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.tabla-registros th {
+  padding: clamp(0.9rem, 2.5vw, 1.2rem);
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+  position: relative;
+}
+
+.tabla-registros th::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 40%;
+  background: linear-gradient(180deg, var(--primary-glow), var(--secondary-glow));
+  border-radius: 2px;
+}
+
+.tabla-registros tbody tr {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-bottom: 1px solid rgba(100, 100, 150, 0.08);
+  position: relative;
+}
+
+.tabla-registros tbody tr::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg,
+      rgba(0, 240, 255, 0.1),
+      transparent);
+  transition: width 0.4s ease;
+}
+
+.tabla-registros tbody tr:hover {
+  background: rgba(0, 240, 255, 0.03);
+  border-color: rgba(0, 240, 255, 0.2);
+  transform: translateX(5px);
+}
+
+.tabla-registros tbody tr:hover::before {
+  width: 100%;
+}
+
+.tabla-registros tbody tr:nth-child(even) {
+  background: rgba(10, 10, 20, 0.3);
+}
+
+.tabla-registros td {
+  padding: clamp(0.8rem, 2.5vw, 1.1rem);
+  color: var(--text-primary);
+  font-weight: 500;
+  position: relative;
+}
+
+.tabla-registros td:first-child {
+  color: var(--primary-glow);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+/* Botones de acción holográficos */
+.btn-editar,
+.btn-eliminar {
+  padding: clamp(0.5rem, 1.5vw, 0.7rem) clamp(0.9rem, 2.5vw, 1.2rem);
+  border: none;
+  border-radius: clamp(8px, 2vw, 12px);
+  cursor: pointer;
+  font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: clamp(0.2rem, 0.5vw, 0.3rem);
+  position: relative;
+  overflow: hidden;
+  min-width: clamp(70px, 15vw, 90px);
+}
+
+.btn-editar::before,
+.btn-eliminar::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+.btn-editar {
+  background: linear-gradient(135deg,
+      rgba(0, 255, 136, 0.9) 0%,
+      rgba(0, 200, 100, 0.9) 100%);
+  color: white;
+  box-shadow:
+    0 4px 15px rgba(0, 255, 136, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-editar:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
+.btn-editar:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow:
+    0 8px 25px rgba(0, 255, 136, 0.4),
+    0 0 40px rgba(0, 255, 136, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-eliminar {
+  background: linear-gradient(135deg,
+      rgba(255, 0, 85, 0.9) 0%,
+      rgba(200, 0, 60, 0.9) 100%);
+  color: white;
+  box-shadow:
+    0 4px 15px rgba(255, 0, 85, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-eliminar:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
+.btn-eliminar:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow:
+    0 8px 25px rgba(255, 0, 85, 0.4),
+    0 0 40px rgba(255, 0, 85, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-editar:active,
+.btn-eliminar:active {
+  transform: translateY(-1px) scale(1);
+}
+
+/* Indicador de modo edición */
+.editing-mode {
+  border-left: 3px solid var(--primary-glow);
+  box-shadow:
+    -5px 0 20px rgba(0, 240, 255, 0.3),
+    0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Estado vacío de tabla */
+.empty-state {
+  text-align: center;
+  padding: clamp(2rem, 6vw, 4rem);
+  color: var(--text-secondary);
+  animation: fadeIn 0.6s ease;
+}
+
+.empty-state svg {
+  width: clamp(50px, 10vw, 80px);
+  height: clamp(50px, 10vw, 80px);
+  margin-bottom: 1rem;
+  opacity: 0.4;
+  filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.3));
+}
+
+.empty-state h3 {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 10, 20, 0.5);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--secondary-glow), var(--accent-glow));
+  box-shadow: 0 0 15px rgba(255, 0, 234, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tabla-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabla-registros {
+    min-width: 700px;
+  }
+
+  .datos form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
+
+  .App {
+    padding: 1rem;
+  }
+
+  .tabla-registros {
+    font-size: 0.75rem;
+  }
+
+  .btn-editar,
+  .btn-eliminar {
+    min-width: 60px;
+    padding: 0.4rem 0.7rem;
+  }
+}
+
+/* Animaciones de carga para nuevas filas */
+@keyframes rowSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.tabla-registros tbody tr {
+  animation: rowSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Efecto de pulso en botones */
+@keyframes pulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 4px 15px rgba(0, 240, 255, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  50% {
+    box-shadow:
+      0 4px 20px rgba(0, 240, 255, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Accesibilidad - focus visible */
+*:focus-visible {
+  outline: 2px solid var(--primary-glow);
+  outline-offset: 2px;
+}
+
+/* Modo oscuro mejorado para pantallas OLED */
+@media (prefers-contrast: high) {
+  :root {
+    --bg-dark: #000000;
+    --bg-card: rgba(10, 10, 15, 0.9);
+  }
+}
+
+/* Reducir movimiento para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
