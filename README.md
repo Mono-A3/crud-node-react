@@ -33,8 +33,8 @@ Este proyecto es una aplicación web full-stack desarrollada como parte de la ac
 
 ### Mi Perfil de GitHub
 
-📌 Visita mi perfil de GitHub: [GitHub](https://github.com/Mono-A3)
+📌 Visita mi perfil de GitHub: <a href="https://github.com/Mono-A3" target="_blank" rel="noopener noreferrer">GitHub</a>
 
 ### Portafolio Profesional
 
-🌐 Explora mi portafolio completo: [andresaraque.com](https://andresaraque.com/en/)
+🌐 Explora mi portafolio completo: <a href="https://andresaraque.com/en/" target="_blank" rel="noopener noreferrer">andresaraque.com</a>
